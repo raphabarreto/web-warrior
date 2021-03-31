@@ -1,5 +1,6 @@
-import React from "react"
-import Navbar from "./Navbar"
+import React from 'react';
+import '../styles/global.css';
+import Navbar from './Navbar';
 
 export default function Layout({ children }) {
   return (
@@ -12,5 +13,5 @@ export default function Layout({ children }) {
         <p>Copyright 2021 Web Warrior &copy;</p>
       </footer>
     </>
-  )
+  );
 }
