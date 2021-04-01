@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import Layout from '../../components/Layout';
 import { portfolio, project } from '../../styles/projects.module.css';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 export default function Projects({ data }) {
   const projects = data.projects.nodes;
@@ -17,6 +18,12 @@ export default function Projects({ data }) {
             <Link to={`/projects/${project.frontmatter.slug}`} key={project.id}>
               <div>
                 <h3>{project.frontmatter.title}</h3>
+                <GatsbyImage
+                  image={
+                    project.frontmatter.thumb.childImageSharp.gatsbyImageData
+                  }
+                  alt={`Project - ${project.frontmatter.title}`}
+                />
                 <p>{project.frontmatter.stack}</p>
               </div>
             </Link>
@@ -39,6 +46,11 @@ export const query = graphql`
           slug
           stack
           title
+          thumb {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH)
+            }
+          }
         }
         id
       }
