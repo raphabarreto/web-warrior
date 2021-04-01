@@ -18,7 +18,7 @@ export default function ProjectDetails({ data }) {
           <GatsbyImage
             image={featuredImg.childImageSharp.gatsbyImageData}
             alt={`Project - ${title}`}
-          />{' '}
+          />
           <div className={html} dangerouslySetInnerHTML={{ __html: html }} />
         </div>
       </div>
